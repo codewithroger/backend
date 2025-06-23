@@ -11,6 +11,8 @@ app.use(cors());
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
+   tls: true,
+  tlsAllowInvalidCertificates: false, // set to true only for testing!
 });
 
 app.use('/api/auth', authRoutes);
