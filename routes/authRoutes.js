@@ -6,8 +6,10 @@ const User = require('../models/User');
 
 const router = express.Router();
 
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+
 admin.initializeApp({
-  credential: admin.credential.cert(require('../firebaseServiceAccountKey.json'))
+  credential: admin.credential.cert(serviceAccount),
 });
 
 // Register route
